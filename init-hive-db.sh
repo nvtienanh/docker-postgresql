@@ -2,9 +2,9 @@
 set -e
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
-  CREATE USER hive WITH PASSWORD 'hive';
+  CREATE USER hue WITH PASSWORD 'hue';
   CREATE DATABASE metastore;
-  GRANT ALL PRIVILEGES ON DATABASE metastore TO hive;
+  GRANT ALL PRIVILEGES ON DATABASE metastore TO hue;
 
   \c metastore
 
@@ -13,7 +13,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
 
   \pset tuples_only
   \o /tmp/grant-privs
-SELECT 'GRANT SELECT,INSERT,UPDATE,DELETE ON "' || schemaname || '"."' || tablename || '" TO hive ;'
+SELECT 'GRANT SELECT,INSERT,UPDATE,DELETE ON "' || schemaname || '"."' || tablename || '" TO hue ;'
 FROM pg_tables
 WHERE tableowner = CURRENT_USER and schemaname = 'public';
   \o
