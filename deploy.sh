@@ -32,6 +32,6 @@ deploy() {
 }
 
 
-deploy $IMAGE_TAG $ZEPPELIN_VERSION
+deploy $IMAGE_TAG $POSTGRESQL_VERSION
 # Update Microbadger
 curl -X POST https://hooks.microbadger.com/images/nvtienanh/postgresql/4w3yZBgJhVDCQtHOapich660Eq4=
