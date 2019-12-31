@@ -34,4 +34,4 @@ deploy() {
 
 deploy $IMAGE_TAG $ZEPPELIN_VERSION
 # Update Microbadger
-# curl -X POST https://hooks.microbadger.com/images/nvtienanh/hadoop-base/CA79IP9AVi0mpSaTDfi9k4POrdQ=
+curl -X POST https://hooks.microbadger.com/images/nvtienanh/postgresql/4w3yZBgJhVDCQtHOapich660Eq4=
